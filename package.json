@@ -1,7 +1,7 @@
 {
   "name": "sublimer",
-  "version": "1.0.0",
-  "description": "sublime cli loader for standardjs lint guide and formatter",
+  "version": "1.0.1",
+  "description": "simple CLI tool for faster editing lint rules using sublime and standard",
   "keywords": [
     "cli",
     "sublime",

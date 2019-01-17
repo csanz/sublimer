@@ -1,5 +1,5 @@
 # sublimer
-sublime cli loader for standardjs lint guide and formatter
+simple CLI tool for faster editing lint rules using sublime and standard
 
 ![Screenshot](https://raw.githubusercontent.com/csanz/sublimer/master/misc/sublimer.png)
 
