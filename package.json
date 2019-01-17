@@ -1,0 +1,44 @@
+{
+  "name": "sublimer",
+  "version": "1.0.0",
+  "description": "sublime cli loader for standardjs lint guide and formatter",
+  "keywords": [
+    "cli",
+    "sublime",
+    "standardjs",
+    "standard",
+    "lint",
+    "javascript",
+    "guide"
+  ],
+  "author": "Christian Sanz <chrissanz@chrissanz.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csanz/sublimer/issues"
+  },
+  "homepage": "https://github.com/csanz/sublimer#readme",
+  "main": "index.js",
+  "bin": {
+    "sublimer": "./bin/cli.js"
+  },
+  "scripts": {
+    "start": "node ./bin/cli.js",
+    "test": "standard && mocha ./test/test.js"
+  },
+  "engines": {
+    "node": ">=8.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csanz/sublimer.git"
+  },
+  "dependencies": {
+    "optimist": ">= 0.6.1",
+    "colors": "*",
+    "mocha": "5.2.0",
+    "shelljs": "0.8.3"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
