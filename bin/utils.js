@@ -20,7 +20,12 @@ utils.showBanner = function (numberOfLines) {
 // Show next edit
 
 utils.showNextEdit = function (allData) {
+  // If data is empty then show warning
+
   if (allData !== null && allData.path === null && allData.desc === null) return this.showWarning()
+
+  // If not empty then show next edit
+
   console.log(colors.gray(' ||'))
   console.log(colors.gray(' ||'), ' ', colors.bold('Next edit:'))
   console.log(colors.gray(' ||'), ' ', colors.gray('  \\__'), colors.gray(allData.path))

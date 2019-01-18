@@ -1,4 +1,3 @@
-
 var mocha = require('mocha')
 var describe = mocha.describe
 var it = mocha.it

@@ -19,12 +19,14 @@ var _flip = 0 // use for flipping between showing and loading
 start() // start the program
 
 function start () {
+  // Setup initial parameters
+
   program
     .version('0.1.0')
     .option('-f, --file [filePath]', 'format single file')
     .parse(process.argv)
 
-  // File path
+  // Detect file path param
 
   if (program.file) {
     if (program.file === true) return utils.showWarning('missing file path')
@@ -36,27 +38,46 @@ function start () {
 
   search()
 
+  // Do the search
+
   function search (pathString) {
+    // TODO: Setup options
+
     sublimer.search(pathString, onSearchEnd)
   }
 }
 
-// On search end
+// Once search ends, call on search end
 
 function onSearchEnd (err, results) {
-  process.stdin.resume() // Resume
+  // This is imnportant to keep here, we have to resume the terminal
+
+  process.stdin.resume()
+
+  // If the search returned with errors let's show them to the user
 
   if (err) return utils.showError(err)
 
+  // If the results were empty, you are complete, let's close the session
+
   if (results === null) {
+    // Show end
+
     utils.showEnd()
+
+    // Exit proces
 
     process.exit()
   }
 
   allData = results
 
-  index = allData.length // go backwards, so as you edit the files you don't loose the location
+  /*
+    Flip the looping backwards
+
+    This will help keep the right line numbers while editing the files
+  */
+  index = allData.length
 
   init()
 }
@@ -66,12 +87,20 @@ function onSearchEnd (err, results) {
 function init () {
   index--
 
+  // Active keypress event emitter
+
+  // FIXME: I need to change this to a user module
+
   readline.emitKeypressEvents(process.stdin)
   process.stdin.on('keypress', onKeyPress)
 
   if (allData && !utils.isValid(allData[index])) return utils.showWarning()
 
+  // Show the sublimer banner
+
   utils.showBanner(index)
+
+  // Show the next item to edit
 
   utils.showNextEdit(allData[index])
 }
@@ -79,10 +108,15 @@ function init () {
 // on key press
 
 function onKeyPress (str, key) {
+  // If you are active then force user to click enter again
+
   if (_flip === 0) {
     _flip++
+
     return run()
   } else {
+    // Show next edit
+
     _flip--
     utils.showNextEdit(allData[index])
   }
@@ -91,7 +125,13 @@ function onKeyPress (str, key) {
 // run the app
 
 function run () {
-  shell.exec('sublime ' + allData[index].path)
+  var _execPath = 'sublime ' + allData[index].path
+
+  // Time to load up sublime (Or another IDE)
+
+  // TODO: Need to add support for other IDS by calling EDITOR or VISUAL env variables.
+
+  shell.exec(_execPath)
 
   index--
 
