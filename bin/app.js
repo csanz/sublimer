@@ -56,29 +56,36 @@ app.search = function (pathString, callback) {
 
         if (!_lines[i]) continue
 
+        // Set initial variables
+
         var _file
         var _path
         var _desc
+        var _numb
 
         _line = _lines[i].toString().trim()
 
-        // Regex the path, description and line numbers
+        // Regex the path, description and line/row numbers
 
         _path = _line.match(/(.*\d:\s).*?/g).toString()
         _desc = _line.match(/\s(.*)?$/g).toString()
+        _numb = _line.match(/(\d+:\d+).*?/g).toString()
 
         // Clean up the data
 
         _path = _path.replace(': ', '').trim()
         _desc = _desc.trim()
         _file = _path.replace(/:\d+:\d+/g, '')
+        _numb = _numb.split(':')
 
-        // Add all lines to an array
+        // Add all data to an array
 
         allData.push({
           path: path.relative('./', _path),
           desc: _desc,
-          file: path.relative('./', _file)
+          file: path.relative('./', _file),
+          lineNumber: _numb[0],
+          rowNumber: _numb[1]
         })
       }
     } catch (err) {
