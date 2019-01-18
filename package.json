@@ -36,7 +36,9 @@
     "optimist": ">= 0.6.1",
     "colors": "*",
     "mocha": "5.2.0",
-    "shelljs": "0.8.3"
+    "shelljs": "0.8.3",
+    "fs-extra": "^7.0.1",
+    "commander": "2.19.0"
   },
   "devDependencies": {
     "standard": "^12.0.1"
