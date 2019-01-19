@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var pkg = require('../package.json')
+
 var readline = require('readline')
 
 var program = require('commander')
@@ -22,7 +24,7 @@ function start () {
   // Setup initial parameters
 
   program
-    .version('0.1.0')
+    .version(pkg.version)
     .option('-f, --file [filePath]', 'format single file')
     .parse(process.argv)
 
@@ -36,15 +38,15 @@ function start () {
 
   // Run search empty by default
 
-  search()
+  search('')
+}
 
-  // Do the search
+// Do the search
 
-  function search (pathString) {
-    // TODO: Setup options
+function search (pathString) {
+  // TODO: Setup options
 
-    sublimer.search(pathString, onSearchEnd)
-  }
+  sublimer.search(pathString, onSearchEnd)
 }
 
 // Once search ends, call on search end
@@ -63,7 +65,7 @@ function onSearchEnd (err, results) {
   if (results === null) {
     // Show end
 
-    utils.showEnd()
+    utils.showEnd(0)
 
     // Exit proces
 
@@ -77,6 +79,7 @@ function onSearchEnd (err, results) {
 
     This will help keep the right line numbers while editing the files
   */
+
   index = allData.length
 
   init()
@@ -133,6 +136,37 @@ function run () {
 
   shell.exec(_execPath)
 
+  // You reached the end...
+
+  if (index === 0) {
+    /*
+
+       Do one last check, in case user skip a change
+
+       or crated more issues while fixing.
+
+    */
+
+    sublimer.search('', function (err, results) {
+      // Show error
+
+      if (err) {
+        utils.showError(err)
+      }
+
+      // Show the end
+
+      if (!err && results) {
+        utils.showEnd(
+          (results && results.length)
+            ? results.length : 0)
+      }
+
+      // Exit proces
+
+      process.exit()
+    })
+  }
   index--
 
   utils.showClickNext()

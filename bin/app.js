@@ -17,6 +17,16 @@ app.search = function (pathString, callback) {
 
   var _execString = 'standard'
 
+  /*
+
+    Standard does not take path parameters unless you are a file,
+
+    so it's ok to push whatever the user passed into here
+
+    ./, ., ../ they will all return false and will default to _execString
+
+  */
+
   if (pathString && file.isFile(pathString)) {
     // Check if the file is zero bytes first
 

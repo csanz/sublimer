@@ -38,12 +38,23 @@ utils.showNextEdit = function (allData) {
 
 // show end
 
-utils.showEnd = function () {
-  console.log()
-  console.log(colors.gray('░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░'))
-  console.log(colors.rainbow('  You have reached the end, congrats...'))
-  console.log(colors.gray('░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░'))
-  console.log()
+utils.showEnd = function (numberLeft) {
+  console.log(colors.gray(' ||'))
+  console.log(colors.gray(' ||'))
+
+  // If the number of tasks still higher than zero
+
+  if (numberLeft > 0) {
+    // Recommend to run the tool again
+    console.log(colors.gray(' ||'), ' ', colors.gray('You have reached the end!'))
+    console.log(colors.gray(' ||'), ' ', colors.red('You still have ' + numberLeft + ' left, run `sublimer` again to clean up'))
+  } else {
+    // You are done!
+
+    console.log(colors.gray(' ||'), ' ', colors.gray('You have reached the end, no more issues'), colors.green.bold('congrats!'))
+  }
+  console.log(colors.gray(' ||'))
+  console.log(colors.gray(' ||'))
 }
 
 // click to show next

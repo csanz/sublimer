@@ -8,4 +8,4 @@ var results = (err, results) => {
   }
 }
 
-sublimer.search('./misc/sample.dat', results)
+sublimer.search('', results)
