@@ -22,7 +22,7 @@ utils.showBanner = function (numberOfLines) {
 utils.showNextEdit = function (allData) {
   // If data is empty then show warning
 
-  if (allData !== null && allData.path === null && allData.desc === null) return this.showWarning()
+  if (!allData) return
 
   // If not empty then show next edit
 
