@@ -1,6 +1,6 @@
 {
   "name": "sublimer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "simple CLI tool for faster editing lint rules using sublime and standard",
   "keywords": [
     "cli",
