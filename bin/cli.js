@@ -26,7 +26,12 @@ function start () {
   program
     .version(pkg.version)
     .option('-f, --file [filePath]', 'format single file')
+    .option('--test', 'check if you have everything to run the app')
     .parse(process.argv)
+
+  // Env Missing
+
+  if (!process.env.EDITOR) return utils.showWarning('missing EDITOR environment variable')
 
   // Detect file path param
 
@@ -128,7 +133,7 @@ function onKeyPress (str, key) {
 // run the app
 
 function run () {
-  var _execPath = 'sublime ' + allData[index].path
+  var _execPath = process.env.EDITOR + ' ' + allData[index].path
 
   // Time to load up sublime (Or another IDE)
 

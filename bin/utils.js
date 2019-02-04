@@ -51,7 +51,7 @@ utils.showEnd = function (numberLeft) {
   } else {
     // You are done!
 
-    console.log(colors.white(' ||'), ' ', colors.green.bold('you are done!'))
+    console.log(colors.white(' ||'), ' ', colors.green.bold('you are all done!'))
   }
   console.log(colors.white(' ||'))
   console.log(colors.white(' ||'))

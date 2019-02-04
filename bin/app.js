@@ -34,7 +34,7 @@ app.search = function (pathString, callback) {
       return console.log('\nThe file was zero bytes\n>> %s\n'.red, pathString)
     }
 
-    _execString = (pathString !== null) ? 'standard ' + pathString : 'standard'
+    _execString = (pathString !== null) ? _execString + ' ' + pathString : _execString
 
     // Execute with path parameters
 
