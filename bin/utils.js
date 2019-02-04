@@ -6,15 +6,15 @@ var utils = exports = module.exports = {}
 
 utils.showBanner = function (numberOfLines) {
   console.log()
-  console.log(colors.gray(' ||'), colors.gray.italic(' ', '░░░ ░  ░ ░░░░ ░    ░ ░     ░ ░░░░ ░░░░'))
-  console.log(colors.gray(' ||'), colors.gray.italic(' ', '░   ░  ░ ░  ░ ░    ░ ░ ░ ░ ░ ░    ░  ░'))
-  console.log(colors.gray(' ||'), colors.gray.italic(' ', ' ░  ░  ░ ░ ░  ░    ░ ░  ░  ░ ░░   ░░░░'))
-  console.log(colors.gray(' ||'), colors.gray.italic(' ', '  ░ ░  ░ ░  ░ ░    ░ ░     ░ ░    ░ ░'))
-  console.log(colors.gray(' ||'), colors.gray.italic(' ', '░░░ ░░░░ ░░░░ ░░░░ ░ ░     ░ ░░░░ ░  ░'))
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'), ' ', colors.gray('Make sure you run `standard --fix` to automatically fix some problems.'))
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'), ' ', colors.gray('Number of lines: ' + numberOfLines))
+  console.log(colors.white(' ||'), colors.white.italic(' ', '░░░ ░  ░ ░░░░ ░    ░ ░     ░ ░░░░ ░░░░'))
+  console.log(colors.white(' ||'), colors.white.italic(' ', '░   ░  ░ ░  ░ ░    ░ ░ ░ ░ ░ ░    ░  ░'))
+  console.log(colors.white(' ||'), colors.white.italic(' ', ' ░  ░  ░ ░ ░  ░    ░ ░  ░  ░ ░░   ░░░░'))
+  console.log(colors.white(' ||'), colors.white.italic(' ', '  ░ ░  ░ ░  ░ ░    ░ ░     ░ ░    ░ ░'))
+  console.log(colors.white(' ||'), colors.white.italic(' ', '░░░ ░░░░ ░░░░ ░░░░ ░ ░     ░ ░░░░ ░  ░'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'), ' ', colors.white('Make sure you run `standard --fix` to automatically fix some problems.'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'), ' ', colors.white('Number of lines: ' + numberOfLines))
 }
 
 // Show next edit
@@ -26,35 +26,35 @@ utils.showNextEdit = function (allData) {
 
   // If not empty then show next edit
 
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'), ' ', colors.bold('Next edit:'))
-  console.log(colors.gray(' ||'), ' ', colors.gray('  \\__'), colors.gray(allData.path))
-  console.log(colors.gray(' ||'), ' ', colors.gray('  \\__'), colors.yellow(allData.desc))
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'), ' ', colors.white('Press [enter] to open sublime'))
-  console.log(colors.gray(' ||'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'), ' ', colors.bold('Next edit:'))
+  console.log(colors.white(' ||'), ' ', colors.white('  \\__'), colors.white(allData.path))
+  console.log(colors.white(' ||'), ' ', colors.white('  \\__'), colors.yellow(allData.desc))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'), ' ', colors.white('Press [enter] to open sublime'))
+  console.log(colors.white(' ||'))
 }
 
 // show end
 
 utils.showEnd = function (numberLeft) {
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'))
 
   // If the number of tasks still higher than zero
 
   if (numberLeft > 0) {
     // Recommend to run the tool again
-    console.log(colors.gray(' ||'), ' ', colors.gray('You have reached the end!'))
-    console.log(colors.gray(' ||'), ' ', colors.red('You still have ' + numberLeft + ' left, run `sublimer` again to clean up'))
+    console.log(colors.white(' ||'), ' ', colors.white('You have reached the end!'))
+    console.log(colors.white(' ||'), ' ', colors.red('Run `sublimer` again to clean up'))
   } else {
     // You are done!
 
-    console.log(colors.gray(' ||'), ' ', colors.gray('You have reached the end, no more issues'), colors.green.bold('congrats!'))
+    console.log(colors.white(' ||'), ' ', colors.green.bold('you are done!'))
   }
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'))
 }
 
 // click to show next
@@ -78,17 +78,17 @@ utils.isValid = function (data) {
 // Show warning
 
 utils.showWarning = function (text) {
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'), ' ', colors.yellow(text))
-  console.log(colors.gray(' ||'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'), ' ', colors.yellow(text))
+  console.log(colors.white(' ||'))
 }
 
 // Show error
 
 utils.showError = function (err) {
-  console.log(colors.gray(' ||'))
-  console.log(colors.gray(' ||'), ' ', colors.red(err))
-  console.log(colors.gray(' ||'))
+  console.log(colors.white(' ||'))
+  console.log(colors.white(' ||'), ' ', colors.red(err))
+  console.log(colors.white(' ||'))
 }
 
 // Show help

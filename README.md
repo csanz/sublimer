@@ -1,7 +1,7 @@
 # sublimer [![Build Status](https://api.travis-ci.org/csanz/sublimer.svg?branch=master)](https://travis-ci.org/csanz/sublimer)
 simple CLI tool for faster editing lint rules using sublime and standard
 
-![Screenshot](https://raw.githubusercontent.com/csanz/sublimer/master/misc/sublimer.png)
+![Screenshot](https://raw.githubusercontent.com/csanz/sublimer/master/misc/sublimer.png?bust=1)
 
 ## installation
 

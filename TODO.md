@@ -10,3 +10,5 @@
 Standard output: fileName.js:NUMBER:ROW (this works inside sublime)
 
 Expected input to work inside other editors (e.g. VIM): fileName.js +NUMBER
+
+* Pass in something like this `grep -rnw './bin' -e 'toolSlug'` and start to edit. 
