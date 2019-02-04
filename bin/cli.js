@@ -26,7 +26,6 @@ function start () {
   program
     .version(pkg.version)
     .option('-f, --file [filePath]', 'format single file')
-    .option('--test', 'check if you have everything to run the app')
     .parse(process.argv)
 
   // Env Missing

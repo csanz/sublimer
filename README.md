@@ -5,14 +5,17 @@ simple CLI tool for faster editing lint rules using sublime and standard
 
 ## installation
 
+Install `standard` and `sublimer`
+
 ``` bash
+  $ [sudo] npm install standard -g
   $ [sudo] npm install sublimer -g
 ```
 
 Do a quick test
 
 ``` bash
-  $ sublimer --test
+  $ sublimer
 ```
 
 It will most likely tell you that you are missing the `EDITOR` environment variable. 
